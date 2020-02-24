@@ -1,14 +1,17 @@
 class TokensController < ApplicationController
+  before_action :set_list
 
   # GET /tokens
   # GET /tokens.json
   def index
-    @tokens = Token.all
+    @tokens = @list.tokens
   end
 
   # GET /tokens/1
   # GET /tokens/1.json
   def show
+    @token = Token.find(params[:id])
+    # @list = List.find(params[:list_id])
   end
 
   # GET /tokens/new
@@ -24,7 +27,6 @@ class TokensController < ApplicationController
   # POST /tokens
   # POST /tokens.json
   def create
-    @list = List.find(params[:list_id])
     @token = @list.tokens.new(token_params)
 
     respond_to do |format|
@@ -62,6 +64,10 @@ class TokensController < ApplicationController
   end
 
   private
+
+    def set_list
+      @list = List.find(params[:list_id])
+    end
 
     # Only allow a list of trusted parameters through.
     def token_params
