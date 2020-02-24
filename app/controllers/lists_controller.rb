@@ -9,7 +9,6 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   def show
-    byebug
     @groupedTokens = groupTokens(@list)
   end
 
