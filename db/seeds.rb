@@ -22,15 +22,20 @@
 #   { name: 'Andy’s Favorites' }
 # ])
 
-List.all.each do |list|
-  Category.all.each do |category|
-    10.times do
-      Token.create!(
-        name: Faker::Name.unique.name,
-        value: Faker::Color.unique.hex_color,
-        list_id: list.id,
-        category_id: category.id
-      )
-    end
-  end
-end
+# List.all.each do |list|
+#   Category.all.each do |category|
+#     10.times do
+#       Token.create!(
+#         name: Faker::Name.unique.name,
+#         value: Faker::Color.unique.hex_color,
+#         list_id: list.id,
+#         category_id: category.id
+#       )
+#     end
+#   end
+# end
+
+List.create!([
+  { name: '🦸🏽‍♀️🦸🏿‍♂️ Superhero Cards 2'},
+  { name: '⬛️ The Darkness' }
+])
