@@ -1,0 +1,9 @@
+@import "vendor/*";
+
+@import "design_system/*";
+
+@import "components/*";
+
+body {
+  background-color: var(--color-background-canvas)
+}

@@ -1,0 +1,18 @@
+.navbar {
+  background-color: var(--color-background-surface);
+  padding: var(--padding-medium);
+  @include box-shadow_large;
+
+  &__title {
+    margin: 0;
+    @include h2;
+    text-align: center;
+  }
+
+  &__subtitle {
+    color: var(--color-text-secondary);
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+  }
+}

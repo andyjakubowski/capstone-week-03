@@ -1,0 +1,75 @@
+:root {
+  --font-size-extra-large: calc(var(--remote-font-size-extra-large, 40) * 1px);
+  --font-size-large: calc(var(--remote-font-size-large, 32) * 1px);
+  --font-size-medium: calc(var(--remote-font-size-medium, 24) * 1px);
+  --font-size-regular: calc(var(--remote-font-size-regular, 20) * 1px);
+  --font-size-small: calc(var(--remote-font-size-small, 16) * 1px);
+}
+
+@mixin h1 {
+  font-size: var(--font-size-extra-large);
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+@mixin h2 {
+  font-size: var(--font-size-large);
+  line-height: 1.125;
+  font-weight: 800;
+}
+
+@mixin h3 {
+  font-size: var(--font-size-medium);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+@mixin font-large {
+  font-size: var(--font-size-large);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@mixin font-medium {
+  font-size: var(--font-size-medium);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@mixin font-regular {
+  font-size: var(--font-size-regular);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@mixin font-small {
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  font-family: -apple-system, system-ui, sans-serif;
+  @include font-regular;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+a {
+  color: var(--color-interactive-secondary);
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
