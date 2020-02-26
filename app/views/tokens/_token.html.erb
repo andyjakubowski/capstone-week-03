@@ -1,7 +1,10 @@
-<p>
-  <strong>Name:</strong> <%= token.name %>
-  <strong>Value:</strong> <%= token.value %>
-  <%= link_to 'Edit Token', edit_list_token_path(token.list, token) %>
-  <%= link_to 'Destroy Token', [token.list, token],
-              method: :delete %>
-</p>
+<div class="token-list-item">
+  <div class="token-list-item__content">
+    <h3 class="token-list-item__value"><%= token.value %></h3>
+    <p class="token-list-item__name"><%= token.name %></p>
+  </div>
+  <%= link_to 'Edit', edit_list_token_path(token.list, token) %>
+  <%= link_to 'Delete', [token.list, token],
+                method: :delete %>
+</div>
+
