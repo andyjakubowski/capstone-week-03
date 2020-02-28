@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_141353) do
+ActiveRecord::Schema.define(version: 2020_02_28_143826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_141353) do
   create_table "spaces", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
+    t.string "slug", null: false
     t.index ["slug"], name: "index_spaces_on_slug", unique: true
   end
 
