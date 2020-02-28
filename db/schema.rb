@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_091858) do
+ActiveRecord::Schema.define(version: 2020_02_28_095111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2020_02_28_091858) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "space_id", default: 1, null: false
     t.index ["name"], name: "index_lists_on_name", unique: true
+    t.index ["space_id"], name: "index_lists_on_space_id"
   end
 
   create_table "spaces", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_091858) do
     t.index ["list_id"], name: "index_tokens_on_list_id"
   end
 
+  add_foreign_key "lists", "spaces"
   add_foreign_key "tokens", "categories"
   add_foreign_key "tokens", "lists"
 end

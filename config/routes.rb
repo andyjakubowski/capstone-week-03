@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
   resources :categories
   resources :spaces, shallow: true do
-    resources :lists do
-      resources :tokens
+    resources :lists, except: [:index] do
+      resources :tokens, except: [:index, :new, :show]
     end
   end
-  root 'lists#index'
+  root 'spaces#index'
 end

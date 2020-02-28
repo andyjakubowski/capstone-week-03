@@ -1,17 +1,5 @@
 class TokensController < ApplicationController
-  before_action :set_list, only: [:index, :create, :new]
-
-  def index
-    @tokens = @list.tokens
-  end
-
-  def show
-    @token = Token.find(params[:id])
-  end
-
-  def new
-    @token = Token.new
-  end
+  before_action :set_list, only: [:create]
 
   def edit
     @token = Token.find(params[:id])

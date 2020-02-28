@@ -1,7 +1,29 @@
-<div class="spaces-page">
-  <% if @lists.empty? %>
-    <p>This space has no lists.</p>
-  <% else %>
-    <%= render @lists %>
-  <% end %>
+<div class="space-page">
+  <h1>Space #<%= @space.id %></h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @space.lists.each do |list| %>
+        <tr>
+          <td><%= list.name %></td>
+          <td><%= link_to 'Show', list %></td>
+          <td><%= link_to 'Edit', edit_list_path(list) %></td>
+          <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New List', new_space_list_path(@space) %>
+
+  <%= link_to 'Back to all spaces', spaces_path %>
+  <%= link_to 'Edit space', edit_space_path(@space) %> |
 </div>
