@@ -4,7 +4,7 @@ class SpacesController < ApplicationController
   end
 
   def show
-    @space = Space.find_by id: params[:id]
+    @space = Space.find_by slug: params[:slug]
 
     if (!@space)
       render 'spaces/not_found'
