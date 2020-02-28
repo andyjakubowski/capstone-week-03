@@ -18,6 +18,13 @@ class SpacesController < ApplicationController
   end
 
   def create
+    @space = Space.new
+
+    if @space.save
+      redirect_to @space
+    else
+      render 'home/show'
+    end
   end
 
   def update

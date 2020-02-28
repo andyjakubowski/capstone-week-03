@@ -1,0 +1,5 @@
+:root {
+  --radius-regular: calc(var(--remote-radius-regular, 8) * 1px);
+  --radius-medium: calc(var(--remote-radius-medium, 12) * 1px);
+  --radius-large: calc(var(--remote-radius-large, 16) * 1px);
+}

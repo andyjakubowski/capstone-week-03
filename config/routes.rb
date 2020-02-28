@@ -5,5 +5,6 @@ Rails.application.routes.draw do
       resources :tokens, except: [:index, :new, :show]
     end
   end
-  root 'spaces#index'
+  root 'home#show'
+  get ':slug', to: 'spaces#show'
 end

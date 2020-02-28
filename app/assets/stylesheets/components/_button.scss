@@ -1,0 +1,16 @@
+.button {
+  border: 0;
+  border-radius: var(--radius-regular);
+  background-color: var(--color-interactive-primary);
+  color: var(--color-interactive-inverse);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-variant-caps: small-caps;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  padding: var(--padding-regular) var(--padding-regular);
+}
+
+.button:hover {
+  opacity: 0.90;
+}

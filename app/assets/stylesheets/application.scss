@@ -2,10 +2,8 @@
 
 @import "design_system/*";
 
+@import "layouts/*";
+
 @import "pages/*";
 
 @import "components/*";
-
-body {
-  background-color: var(--color-background-canvas)
-}
