@@ -1,5 +1,11 @@
-<h1>Editing List</h1>
+<div class="edit-list-page">
+  <nav class="edit-list-page__back-link">
+    <%= link_to 'Back to list', @list %>
+  </nav>
 
-<%= render 'form', list: @list, model: @list %>
+  <h1 class="edit-list-page__title">Edit list</h1>
 
-<%= link_to 'Back', space_path(@list.space) %>
+  <div class="edit-list-page__form">
+    <%= render 'form', list: @list, model: @list %>
+  </div>
+</div>

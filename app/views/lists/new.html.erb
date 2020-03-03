@@ -1,12 +1,12 @@
 <div class="new-list-page">
+  <nav class="new-list-page__back-link">
+    <%= link_to 'Back to lists', space_path(@list.space) %>
+  </nav>
+
   <h1 class="new-list-page__title">Create List</h1>
 
   <div class="new-list-page__form">
     <%= render 'form', list: @list, model: [@space, @list] %>
-  </div>
-
-  <div class="actions">
-    <%= link_to 'Back', space_path(@space), class: 'actions__item' %>
   </div>
 </div>
 

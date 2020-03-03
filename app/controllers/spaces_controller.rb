@@ -11,12 +11,6 @@ class SpacesController < ApplicationController
     end
   end
 
-  def new
-  end
-
-  def edit
-  end
-
   def create
     @space = Space.new
 
@@ -25,9 +19,6 @@ class SpacesController < ApplicationController
     else
       render 'home/show'
     end
-  end
-
-  def update
   end
 
   def destroy

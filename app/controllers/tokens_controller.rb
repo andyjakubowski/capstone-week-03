@@ -9,7 +9,7 @@ class TokensController < ApplicationController
     @token = @list.tokens.new(token_params)
     respond_to do |format|
       if @token.save
-        format.html { redirect_to list_path(@list), notice: 'Token was successfully created.' }
+        format.html { redirect_to list_path(@list), notice: 'Token created.' }
         format.json { render :show, status: :created, location: token_url(@token) }
       else
         format.html { render 'lists/show' }
@@ -23,7 +23,7 @@ class TokensController < ApplicationController
 
     respond_to do |format|
       if @token.update(token_params)
-        format.html { redirect_to @token.list, notice: 'Token was successfully updated.' }
+        format.html { redirect_to @token.list, notice: 'Token updated.' }
         format.json { render :show, status: :ok, location: token_url(@token) }
       else
         format.html { render 'edit' }
@@ -36,7 +36,7 @@ class TokensController < ApplicationController
     @token.destroy
 
     respond_to do |format|
-      format.html { redirect_to @token.list }
+      format.html { redirect_to @token.list, notice: 'Token deleted.' }
       format.json { head :no_content }
     end
   end
