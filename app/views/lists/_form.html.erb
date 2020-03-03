@@ -1,4 +1,4 @@
-<%= form_with(model: model, local: true) do |form| %>
+<%= form_with(model: model, local: true, class: 'form') do |form| %>
   <% if list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form__input">
+    <%= form.label :name, class: 'form__label' %>
+    <%= form.text_field :name, placeholder: 'Unicorn Tokens', class: 'form__field' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit nil, class: 'form__submit-button button' %>
 <% end %>

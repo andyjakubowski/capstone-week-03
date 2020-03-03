@@ -1,29 +1,20 @@
 <div class="space-page">
-  <h1>Space #<%= @space.id %></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
 
-    <tbody>
+  <h2 class="space-page__title"><%= @space.slug %></h2>
+  <% if @space.lists.empty? %>
+    <p class="space-page__no-tokens-text">There are no token lists yet. Go ahead and create the first one.</p>
+  <% else %>
+    <ul class="space-page__list-of-lists">
       <% @space.lists.each do |list| %>
-        <tr>
-          <td><%= list.name %></td>
-          <td><%= link_to 'Show', list %></td>
-          <td><%= link_to 'Edit', edit_list_path(list) %></td>
-          <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+        <li class="space-page__list-item">
+          <%= link_to list.name, list_path(list), class: 'space-page__list-item-link' %>
+        </li>
       <% end %>
-    </tbody>
-  </table>
+    </ul>
+  <% end %>
 
-  <br>
+  <div class="actions">
+    <%= link_to 'Create list', new_space_list_path(@space), class: 'actions__item' %>
+  </div>
 
-  <%= link_to 'New List', new_space_list_path(@space) %>
-
-  <%= link_to 'Back to all spaces', spaces_path %>
-  <%= link_to 'Edit space', edit_space_path(@space) %> |
 </div>

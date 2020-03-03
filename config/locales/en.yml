@@ -32,4 +32,4 @@
 en:
   helpers:
     submit:
-      create: "Create a Space"
+      create: "Create %{model}"

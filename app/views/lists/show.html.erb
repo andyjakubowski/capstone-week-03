@@ -1,16 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="list-page">
+  <header class="list-page__header">
+    <h1 class="list-page__title"><%= @list.name %></h1>
+    <p class="list-page__token-count">
+      <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>
+    </p>
+  </header>
 
-<h1>List: <%= @list.name %></h1>
+  <div class="list-page__tokens-section">
+    <% @groupedTokens.each do |categoryName, tokens| %>
+      <div class="list-page__token-category">
+        <h2 class="list-page__token-category-title"><%= categoryName %></h2>
+        <div class="list-page__token-category-grid">
+          <% tokens.each do |token| %>
+            <div class="card">
+              <%= render token %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<p>This list has <%= @list.tokens.size %> <%= 'token'.pluralize @list.tokens.size %>.</p>
-
-<% @groupedTokens.each do |categoryName, tokens| %>
-  <h2><%= categoryName %></h2>
-  <%= render tokens %>
-<% end %>
-
-<h2>Add a token:</h2>
-<%= render 'tokens/form', token: [@list, @list.tokens.new] %>
-
-<%= link_to 'Back to all lists', space_path(@list.space) %>
-<%= link_to 'Edit list', edit_list_path(@list) %> |
+  <div class="list-page__add-token-section">
+    <h2 class="list-page__add-token-section-title">Create a new token</h2>
+    <div class="list-page__add-token-form">
+      <%= render 'tokens/form', token: [@list, @list.tokens.new] %>
+    </div>
+  </div>
+  
+  <div class="list-page__actions actions">
+    <%= link_to 'Edit list', edit_list_path(@list), class: 'actions__item' %>
+    <%= link_to 'Back to all lists', space_path(@list.space), class: 'actions__item' %>
+  </div>
+</div>
